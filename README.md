@@ -13,7 +13,7 @@ Windows 系统离线安装工具 — 纯 C + Win32 API 编写，单文件，本�
 - 支持从 `install.wim` / `install.esd` / `win10_*.wim` / `win11_*.wim` 等 ISO 内镜像文件安装
 - 可通过 URL 直接下载 ISO，自动挂载并识别可安装镜像
 - **ViaPe 模式**：暂存到数据盘 → 写 BCD one-shot → 重启进 WinPE → PE 内自动执行 `dism /Apply-Image` + `bcdboot`，全程无人值守
-- **降级直装模式（v70 新增）**：当同目录下 `boot.wim` / `winpe_amd64.wim` 均不存在且目标为非系统盘时，跳过 BCD/PE 注入，直接在正常系统内执行 `dism /Apply-Image`，不重启、不进 PE（目标为系统盘时仍走 PE 内核或需备份数据）
+- **降级直装模式【内测阶段）**：当同目录下 `boot.wim` / `winpe_amd64.wim` 均不存在且目标为非系统盘时，跳过 BCD/PE 注入，直接在正常系统内执行 `dism /Apply-Image`，不重启、不进 PE（目标为系统盘时仍走 PE 内核或需备份数据）
 - **升级推送（v70 新增）**：启动时后台检查 GitHub Release，发现新版弹出更新日志框，用户可选择"查看并更新"或"暂不更新"（仅正常系统端触发，PE 端和 `/auto` 全自动模式绝不联网）
 - 支持 `imagex` / `wimlib-imagex` 备用释放工具（应对第三方精简 PE 缺少 DISM 的情况）
 - 支持自动识别 ISO、自动下载、自动安装（`/auto` 模式用于 PE 端全自动）
